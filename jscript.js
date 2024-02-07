@@ -57,10 +57,22 @@ const combination = [
     result: "I",
   },
 ];
+let convertArr = [];
 
-const resultArray = [];
+const convert = (input) => {
+  if (input === 0) {
+    return;
+  } else {
+    const findValue = combination.find(
+      ({ arabicValue }) => arabicValue <= input
+    );
 
-const inputCheck = (input) => {
+    convert(input - findValue.arabicValue);
+    convertArr.unshift(findValue);
+  }
+};
+
+const inputConversion = (input) => {
   if (input < 1 || input === 0) {
     output.classList.add("invalid-input");
     output.innerText = `Please enter a number greater than or equal to 1.`;
@@ -73,22 +85,12 @@ const inputCheck = (input) => {
     output.innerText = `Please enter a number less than or equal to 3999.`;
     return;
   } else {
-    output.innerText = "";
-  }
-};
-
-const convert = (input) => {
-  const { arabicValue, result } = combination;
-  if (input === 0) {
-    return;
-  } else {
-    const findGreaterThanInput = combination.find(
-      ({ arabicValue }) => arabicValue <= input
-    );
-
-    convert(input - findGreaterThanInput.arabicValue);
-    output.innerText += `${findGreaterThanInput.result}`;
-    console.log(findGreaterThanInput);
+    convert(input);
+    let i = 0;
+    while (i < convertArr.length) {
+      output.innerText += `${convertArr[i].result}`;
+      i++;
+    }
   }
 };
 
@@ -105,7 +107,9 @@ number.addEventListener("keydown", (e) => {
 convertBtn.addEventListener("click", (numberVal) => {
   numberVal = parseInt(number.value);
   output.classList.remove("hidden");
-  inputCheck(numberVal);
+  output.classList.remove("invalid-input");
 
-  convert(numberVal);
+  output.innerText = "";
+  convertArr = [];
+  inputConversion(numberVal);
 });
