@@ -1,0 +1,89 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+:root {
+  /* Colors */
+  --background-primary-color: #0a0a23;
+  --background-secondary-color: #757a8f9d;
+
+  --font-primary-color: #f0ffff;
+  --font-secondary-color: #0a0a23;
+
+  --border-primary-color: #b8870b72;
+  --border-secondary-color: #f0ffff;
+
+  --gradient-primary-color: #b8870b72;
+  --gradient-secondary-color: #b8870bc2;
+  /* Font sizes */
+  --primary-font-size: 2rem;
+  --secondary-font-size: 2.5rem;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  font-size: var(--primary-font-size);
+  background-color: var(--background-primary-color);
+  color: var(--font-primary-color);
+}
+
+.flex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  row-gap: 1rem;
+}
+.container {
+  width: 100%;
+  min-height: 100vh;
+}
+
+.title {
+  font-size: var(--secondary-font-size);
+  width: 14ch;
+  text-align: center;
+}
+
+.box {
+  border: 3px solid var(--border-primary-color);
+  width: 80%;
+  padding: 2rem;
+  background-color: var(--background-secondary-color);
+}
+
+label {
+  color: var(--font-secondary-color);
+  font-weight: bold;
+}
+
+.number-input,
+.convert-btn {
+  font: inherit;
+  width: 95%;
+  height: 3.5rem;
+}
+
+.number-input {
+  border: 1px solid var(--border-secondary-color);
+  background-color: var(--background-primary-color);
+  color: var(--font-primary-color);
+  padding: 0.5rem;
+}
+
+.convert-btn {
+  background: linear-gradient(
+    var(--gradient-primary-color),
+    var(--gradient-secondary-color)
+  );
+  border: 2px solid var(--border-primary-color);
+  cursor: pointer;
+}
+
+.output {
+  display: none;
+}
