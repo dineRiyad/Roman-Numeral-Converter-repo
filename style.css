@@ -13,6 +13,9 @@
 
   --gradient-primary-color: #b8870b72;
   --gradient-secondary-color: #b8870bc2;
+
+  --invalid-primary-color: #8b0000;
+  --invalid-secondary-color: #e9b2b2;
   /* Font sizes */
   --primary-font-size: 2rem;
   --secondary-font-size: 2.5rem;
@@ -54,6 +57,7 @@ body {
   width: 80%;
   padding: 2rem;
   background-color: var(--background-secondary-color);
+  text-align: center;
 }
 
 label {
@@ -84,6 +88,12 @@ label {
   cursor: pointer;
 }
 
-.output {
+.hidden {
   display: none;
+}
+
+.invalid-input {
+  color: var(--invalid-primary-color);
+  background-color: var(--invalid-secondary-color);
+  border-color: var(--invalid-primary-color);
 }
