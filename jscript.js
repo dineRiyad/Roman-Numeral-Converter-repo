@@ -73,43 +73,44 @@ const convert = (input) => {
 };
 
 const inputConversion = (input) => {
-  if (input < 1 || input === 0) {
-    output.classList.add("invalid-input");
-    output.innerText = `Please enter a number greater than or equal to 1.`;
-    return;
-  } else if (!input) {
-    output.classList.add("invalid-input");
-    output.innerText = `Please enter a valid number.`;
-  } else if (input > 3999) {
-    output.classList.add("invalid-input");
-    output.innerText = `Please enter a number less than or equal to 3999.`;
-    return;
-  } else {
+  if (input >= 1) {
     convert(input);
     let i = 0;
     while (i < convertArr.length) {
       output.innerText += `${convertArr[i].result}`;
       i++;
     }
+  } else {
+    output.classList.add("invalid-input");
+    if (input < 1 || input === 0) {
+      output.innerText = `Please enter a number greater than or equal to 1.`;
+      return;
+    } else if (!input) {
+      output.innerText = `Please enter a valid number.`;
+    } else if (input > 3999) {
+      output.innerText = `Please enter a number less than or equal to 3999.`;
+      return;
+    }
   }
+};
+
+const result = (numberVal) => {
+  numberVal = parseInt(number.value);
+  output.classList.remove("hidden");
+  output.classList.remove("invalid-input");
+  output.innerText = "";
+  convertArr = [];
+  inputConversion(numberVal);
 };
 
 converterForm.addEventListener("submit", (e) => {
   e.preventDefault();
 });
 
+convertBtn.addEventListener("click", result);
+
 number.addEventListener("keydown", (e) => {
   if (e.key === "Enter") {
-    console.log(number.value);
+    result();
   }
-});
-
-convertBtn.addEventListener("click", (numberVal) => {
-  numberVal = parseInt(number.value);
-  output.classList.remove("hidden");
-  output.classList.remove("invalid-input");
-
-  output.innerText = "";
-  convertArr = [];
-  inputConversion(numberVal);
 });

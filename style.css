@@ -1,24 +1,25 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Protest+Riot&family=Roboto&display=swap");
 
 :root {
   /* Colors */
-  --background-primary-color: #0a0a23;
-  --background-secondary-color: #757a8f9d;
+  --background-primary-color: #100433;
+  --background-secondary-color: #94899653;
 
   --font-primary-color: #f0ffff;
   --font-secondary-color: #0a0a23;
 
-  --border-primary-color: #b8870b72;
+  --border-primary-color: #c2b849;
   --border-secondary-color: #f0ffff;
 
-  --gradient-primary-color: #b8870b72;
-  --gradient-secondary-color: #b8870bc2;
+  --gradient-primary-color: #c2b849cc;
+  --gradient-secondary-color: #c2b8495f;
 
   --invalid-primary-color: #8b0000;
   --invalid-secondary-color: #e9b2b2;
   /* Font sizes */
   --primary-font-size: 2rem;
-  --secondary-font-size: 2.5rem;
+  --secondary-font-size: 3rem;
 }
 
 * {
@@ -32,6 +33,7 @@ body {
   font-size: var(--primary-font-size);
   background-color: var(--background-primary-color);
   color: var(--font-primary-color);
+  width: 100%;
 }
 
 .flex {
@@ -42,14 +44,20 @@ body {
   row-gap: 1rem;
 }
 .container {
-  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
   min-height: 100vh;
 }
 
 .title {
+  font-family: "Playfair Display", serif;
   font-size: var(--secondary-font-size);
-  width: 14ch;
   text-align: center;
+  padding: 0 1rem;
+}
+
+span {
+  display: block;
 }
 
 .box {
