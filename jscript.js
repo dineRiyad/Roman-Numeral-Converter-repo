@@ -73,7 +73,7 @@ const convert = (input) => {
 };
 
 const inputConversion = (input) => {
-  if (input >= 1) {
+  if (input >= 1 && input < 4000) {
     convert(input);
     let i = 0;
     while (i < convertArr.length) {
